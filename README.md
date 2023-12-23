@@ -1,6 +1,6 @@
 # CP-Semester-Project
 
-Capstone Project: Text-Based RPG - "Quests of Eldoria
+Capstone Project: Text-Based RPG - "Quests of Eldoria"
 
 Students: Hasan Zahid, Hashir bin Asad & Hammad Haroon Shah
 

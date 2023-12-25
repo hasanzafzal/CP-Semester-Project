@@ -33,95 +33,88 @@ void quest1() {
 
         if (riddleSolved) {
             cout << "Proceeding to the next level..." << endl;
-            break;  
+            break;
         } else {
             cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
         }
     }
 
-//Quest 1 Level 2
+    //Quest 1 Level 2
     cout << "LEVEL 2: Goblin Mania" << endl;
     cout << "PROMPT: You have reached inside the cave.... " << endl;
     cout << "Hmm..., Its darken here. " << endl;
     cout << "PROMPT: Exploring inside the cave...." << endl;
-    cout << "SKREEEEEEEK!"<< endl;
-    cout << "HUH! WHO's THERE?! "<< endl;
-    cout << "GOBLIN: You picked the wrong den kid (AHAAHHAHA) ! "<< endl;
-    cout << "PROMPT: THE GOBLINS ARE CONFRONTING YOU FOR TRESPASSING, FEND THEM OFF ! "<<endl;
+    cout << "SKREEEEEEEK!" << endl;
+    cout << "HUH! WHO's THERE?! " << endl;
+    cout << "GOBLIN: You picked the wrong den kid (AHAAHHAHA) ! " << endl;
+    cout << "PROMPT: THE GOBLINS ARE CONFRONTING YOU FOR TRESPASSING, FEND THEM OFF ! " << endl;
 
-//Battle   
-    const int nGoblins= 3;               
-    int Goblin_Health[nGoblins] = {50,50,50}; 
+    //Battle
+    const int nGoblins = 3;
+    int Goblin_Health[nGoblins] = {50, 50, 50};
     int player_Health = 100;
-   
 
-    while (true) 
-     int defeatedGoblins = 0;
-    {
-       for (int i = 0; i < nGoblins; i++) 
-        {
-         cout << "Goblin " << i + 1 << endl;
-         cout << " Health: " << max(0, Goblin_Health[i])<< " ";
-         cout <<endl;
+    while (true) {
+        int defeatedGoblins = 0;
+
+        for (int i = 0; i < nGoblins; i++) {
+            cout << "Goblin " << i + 1 << endl;
+            cout << " Health: " << max(0, Goblin_Health[i]) << " ";
+            cout << endl;
         }
-        
-        cout<<"Your Health: "<< max(0, player_Health) << endl;
+
+        cout << "Your Health: " << max(0, player_Health) << endl;
         cout << "Press '1' to attack: ";
-       
 
-//Player Attack
+        // Player Attack
         char battle_choice;
-        cin>>battle_choice;
-        if (battle_choice == '1')
-         for (int i = 0; i < nGoblins; i++) {
-          int player_Attack = rand() % 11 + 1;
-          Goblin_Health[i] -= player_Attack; 
-          cout << "Goblin" <<i + 1<<"attacked with"<< player_Attack << " damage!" << endl;
-        }
-       
-        else
-        { cout << "Invalid input. Try again." << endl;
+        cin >> battle_choice;
+
+        if (battle_choice == '1') {
+            for (int i = 0; i < nGoblins; i++) {
+                int player_Attack = rand() % 11 + 1;
+                Goblin_Health[i] -= player_Attack;
+                cout << "Goblin " << i + 1 << " attacked with " << player_Attack << " damage!" << endl;
+            }
+        } else {
+            cout << "Invalid input. Try again." << endl;
+             cin.clear();  
+            cin.ignore('\n');  
             continue;
         }
 
-        for (int i = 0; i < nGoblins; i++)
-         {
-            if (Goblin_Health[i] <= 0) 
-            {
+        for (int i = 0; i < nGoblins; i++) {
+            if (Goblin_Health[i] <= 0) {
                 defeatedGoblins++;
                 Goblin_Health[i] = 0;
             }
         }
 
-        if (defeatedGoblins > 0) 
-        {
+        if (defeatedGoblins > 0) {
             cout << "Defeated " << defeatedGoblins << " goblins!" << endl;
         }
-    
 
-// Goblins Attack
-        for (int i = 0; i < nGoblins; ++i)
-         {
-            int Goblin_Attack = rand() % 6 + 1;  
+        // Goblins Attack
+        for (int i = 0; i < nGoblins; ++i) {
+            int Goblin_Attack = rand() % 6 + 1;
             player_Health -= max(0, Goblin_Attack);
 
-            cout << "You got attacked by"<<"Goblin"<< i + 1 << "for" << max(0, Goblin_Attack) << " damage!" << endl;
+            cout << "You got attacked by Goblin " << i + 1 << " for " << max(0, Goblin_Attack) << " damage!" << endl;
 
-            
-            if (player_Health <= 0) 
-            {
+            if (player_Health <= 0) {
                 cout << "You were defeated by the goblins. Game Over!" << endl;
-                return;  
+                return;
             }
-         }
-//Goblin defeat check
+        }
+
+        // Goblin defeat check
         if (defeatedGoblins == nGoblins) {
             cout << "All goblins defeated!" << endl;
             break;
         }
     }
 }
-    
+
 int main() {
     quest1();
     return 0;

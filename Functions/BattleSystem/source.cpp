@@ -34,13 +34,34 @@ void quest1() {
     cout << "PROMPT: Exploring inside the cave...." << endl;
     cout << "SKREEEEEEEK!"<< endl;
     cout << "HUH! WHO's THERE?! "<< endl;
-    cout << "GOBLIN: You picked the wrong den kid ! "<< endl;
+    cout << "GOBLIN: You picked the wrong den kid (AHAAHHAHA) ! "<< endl;
     cout << "PROMPT: THE GOBLINS ARE CONFRONTING YOU FOR TRESPASSING, FEND THEM OFF ! "<<endl;
     
     const int nGoblins= 3;               
     int Goblin_Health[nGoblins] = {50,50,50}; 
     int player_Health = 100;
+   
 
+    while (true) 
+    {
+       cout<<"Your Health: "<< player_Health << endl;
+       cout << "Press '1' to attack: ";
+
+       char<<input_battle;
+       cin >>input_battle;
+       for (int i = 0; i < nGoblins; i++) 
+        {
+         cout << "Goblin " << i + 1 << endl;
+         cout << " Health: " << Goblin_Health[i] << " ";
+         cout <<endl;
+        }
+
+     
+        int player_Attack = rand() % 13 + 1;
+        Goblin_Health[0] -= player_Attack; 
+        cout << "Attacked Goblin with" << player_Attack << " damage!" << endl;
+ 
+    }
 
 
 

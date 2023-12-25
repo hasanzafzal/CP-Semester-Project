@@ -1,10 +1,15 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
 
 void quest1() {
     string level_1_qst_inp;
-// Quest 1 , Level 1
+    bool riddleSolved = false;
+
+    // Quest 1 , Level 1
     cout << "LEVEL 1: Explore the Forest" << endl;
     cout << "PROMPT: ....Travelling across the forest..... " << endl;
     cout << "PROMPT: You have reached Grovetopia Falls " << endl;
@@ -19,15 +24,22 @@ void quest1() {
 
             if (level_1_qst_inp == "Stick" || level_1_qst_inp == "stick" || level_1_qst_inp == "A stick" || level_1_qst_inp == "A Stick" || level_1_qst_inp == "A STICK" || level_1_qst_inp == "STICK") {
                 cout << "Riddle Solved!" << endl;
-                return;
+                riddleSolved = true;
+                break;
             } else {
                 cout << "Oops! Incorrect Answer. Try Again. (" << attempts - 1 << " attempts remaining)" << endl;
             }
         }
-        if (level_1_qst_inp != "Stick" && level_1_qst_inp != "stick" && level_1_qst_inp != "A stick" && level_1_qst_inp != "A Stick" && level_1_qst_inp != "A STICK" && level_1_qst_inp != "STICK")
-        cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
+
+        if (riddleSolved) {
+            cout << "Out of attempts. Riddle solved. Proceeding to the next level..." << endl;
+            break;  // This break exits the while loop
+        } else {
+            cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
+        }
     }
-//Quest 1 Level 2
+
+    //Quest 1 Level 2
     cout << "LEVEL 2: Goblin Mania" << endl;
     cout << "PROMPT: You have reached inside the cave.... " << endl;
     cout << "Hmm..., Its darken here. " << endl;
@@ -58,7 +70,7 @@ void quest1() {
 
 //Player Attack
         char battle_choice;
-        cin >>battle_choice;
+        cin>>battle_choice;
         if (battle_choice == '1')
         {   
         int player_Attack = rand() % 13 + 1;
@@ -79,7 +91,8 @@ void quest1() {
         }
 
 // Goblins Attack
-        for (int i = 0; i < nGoblins; ++i) {
+        for (int i = 0; i < nGoblins; ++i)
+         {
             int Goblin_Attack = rand() % 6 + 1;  
             player_Health -= Goblin_Attack;
 
@@ -91,18 +104,11 @@ void quest1() {
                 cout << "You were defeated by the goblins. Game Over!" << endl;
                 return;  
             }
-
-}
+        }
     }
-       }  
-
+}
+    
 int main() {
     quest1();
     return 0;
 }
-
-
-
-
-
-

@@ -73,11 +73,10 @@ void quest1() {
         char battle_choice;
         cin>>battle_choice;
         if (battle_choice == '1')
-        {
-        for (int i = 0; i < nGoblins; i++) {
-        int player_Attack = rand() % 11 + 1;
-        Goblin_Health[i] -= player_Attack; 
-        cout << "Goblin" <<i + 1<< attacked with<< player_Attack << " damage!" << endl;
+         for (int i = 0; i < nGoblins; i++) {
+          int player_Attack = rand() % 11 + 1;
+          Goblin_Health[i] -= player_Attack; 
+          cout << "Goblin" <<i + 1<<"attacked with"<< player_Attack << " damage!" << endl;
         }
        
         else
@@ -114,6 +113,7 @@ void quest1() {
                 cout << "You were defeated by the goblins. Game Over!" << endl;
                 return;  
             }
+         }
 //Goblin defeat check
         if (defeatedGoblins == nGoblins) {
             cout << "All goblins defeated!" << endl;

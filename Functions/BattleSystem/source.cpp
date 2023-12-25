@@ -56,15 +56,16 @@ void quest1() {
    
 
     while (true) 
+     int defeatedGoblins = 0;
     {
        for (int i = 0; i < nGoblins; i++) 
         {
          cout << "Goblin " << i + 1 << endl;
-         cout << " Health: " << Goblin_Health[i] << " ";
+         cout << " Health: " << max(0, Goblin_Health[i])<< " ";
          cout <<endl;
         }
         
-        cout<<"Your Health: "<< player_Health << endl;
+        cout<<"Your Health: "<< max(0, player_Health) << endl;
         cout << "Press '1' to attack: ";
        
 

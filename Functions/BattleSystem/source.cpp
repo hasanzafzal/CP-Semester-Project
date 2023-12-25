@@ -73,31 +73,40 @@ void quest1() {
         char battle_choice;
         cin>>battle_choice;
         if (battle_choice == '1')
-        {   
-        int player_Attack = rand() % 13 + 1;
-        Goblin_Health[0] -= player_Attack; 
-        cout << "Goblin attacked with" << player_Attack << " damage!" << endl;
-        }
-
-        if (Goblin_Health[0] <= 0)
         {
-            cout << "Goblin defeated!" << endl;
-            break;  
+        for (int i = 0; i < nGoblins; i++) {
+        int player_Attack = rand() % 11 + 1;
+        Goblin_Health[i] -= player_Attack; 
+        cout << "Goblin" <<i + 1<< attacked with<< player_Attack << " damage!" << endl;
         }
-
-        else 
-        {
-            cout << "Invalid input. Try again." << endl;
+       
+        else
+        { cout << "Invalid input. Try again." << endl;
             continue;
         }
+
+        for (int i = 0; i < nGoblins; i++)
+         {
+            if (Goblin_Health[i] <= 0) 
+            {
+                defeatedGoblins++;
+                Goblin_Health[i] = 0;
+            }
+        }
+
+        if (defeatedGoblins > 0) 
+        {
+            cout << "Defeated " << defeatedGoblins << " goblins!" << endl;
+        }
+    
 
 // Goblins Attack
         for (int i = 0; i < nGoblins; ++i)
          {
             int Goblin_Attack = rand() % 6 + 1;  
-            player_Health -= Goblin_Attack;
+            player_Health -= max(0, Goblin_Attack);
 
-            cout << "You got attacked by"<<"Goblin"<< i + 1 << "for" << Goblin_Attack << " damage!" << endl;
+            cout << "You got attacked by"<<"Goblin"<< i + 1 << "for" << max(0, Goblin_Attack) << " damage!" << endl;
 
             
             if (player_Health <= 0) 
@@ -105,6 +114,10 @@ void quest1() {
                 cout << "You were defeated by the goblins. Game Over!" << endl;
                 return;  
             }
+//Goblin defeat check
+        if (defeatedGoblins == nGoblins) {
+            cout << "All goblins defeated!" << endl;
+            break;
         }
     }
 }

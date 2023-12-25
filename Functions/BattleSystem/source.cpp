@@ -109,6 +109,6 @@ void quest1() {
 }
     
 int main() {
-    questt1();
+    quest1();
     return 0;
 }

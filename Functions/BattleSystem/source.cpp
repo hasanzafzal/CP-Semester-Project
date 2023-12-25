@@ -52,15 +52,15 @@ void quest1() {
          cout <<endl;
         }
         
-        char<<input_battle;
-        cin >>input_battle;
+        char<<battle_choice;
+        cin >>battle_choice;
 
         cout<<"Your Health: "<< player_Health << endl;
         cout << "Press '1' to attack: ";
        
 
 //Player Attack
-        if (userInput == '1')
+        if (battle_choice == '1')
         {   
         int player_Attack = rand() % 13 + 1;
         Goblin_Health[0] -= player_Attack; 

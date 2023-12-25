@@ -14,8 +14,12 @@ cout<<"A Cave?? I wonder."<<endl;
 
 cout<<"PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)"<<endl;
 
-cout<<"What is brown and sticky?"<<endl;
-cin
+for(int attempts=3; attempts>0; attempts++)
+{
+  if(rddlans!=Stick||stick||A stick||A Stick||A STICK||STICK)
+cout<<"What is brown and sticky?"<<"("<<attmpt<<"attempts remaining"<<")"<<endl;
+getline(cin,rddlans);
+
 
 
 

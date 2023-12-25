@@ -2,46 +2,36 @@
 #include <string>
 using namespace std;
 
-int quest1 { 
-string rddlans;
-cout<<"LEVEL 1: Explore the Forest"<<endl;
+void quest1() {
+    string rddlans;
 
-cout<<"PROMPT: ....Travelling across the forest..... "<<endl;
-cout<<"PROMPT: You have reach Grovetopia Falls "<<endl;
+    cout << "LEVEL 1: Explore the Forest" << endl;
+    cout << "PROMPT: ....Travelling across the forest..... " << endl;
+    cout << "PROMPT: You have reached Grovetopia Falls " << endl;
+    cout << "Wait! What's that dark corner right there?...." << endl;
+    cout << "A Cave?? I wonder." << endl;
+    cout << "PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)" << endl;
 
-cout<<"Wait! What's that dark corner right there?...."<<endl;
-cout<<"A Cave?? I wonder."<<endl;
+    while (true) {
+        for (int attempts = 3; attempts > 0; --attempts) {
+            cout << "What is brown and sticky? (" << attempts << " attempts remaining)" << endl;
+            getline(cin, rddlans);
 
-cout<<"PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)"<<endl;
+            if (rddlans == "Stick" || rddlans == "stick" || rddlans == "A stick" || rddlans == "A Stick" || rddlans == "A STICK" || rddlans == "STICK") {
+                cout << "Riddle Solved!" << endl;
+                return;
+            } else {
+                cout << "Oops! Incorrect Answer. Try Again. (" << attempts - 1 << " attempts remaining)" << endl;
+            }
+        }
 
-while (true) {
-
-for(int attempts=3; attempts>0; --attempts)
-
-  {
-cout<<"What is brown and sticky?"<<"("<<attempts<<"attempts remaining"<<")"<<endl;
-getline(cin,rddlans);
-
-if(rddlans == Stick||stick||A stick||A Stick||A STICK||STICK)
-{ cout<<"Riddle Solved!"<<endl;
-break;
- 
-}
-else
-{
-cout << "Oops! Incorrect Answer. Try Again. (" << attempts - 1 << " attempts remaining)" << endl;
+        cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
+    }
 }
 
-  }
-
-if (rddlans != correctAnswer) 
-{
-cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
- 
-}
-return 0;
-}
-
+int main() {
+    quest1();
+    return 0;
 }
 
 
@@ -49,7 +39,3 @@ return 0;
 
 
 
-
-
-
-}

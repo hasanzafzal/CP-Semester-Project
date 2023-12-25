@@ -3,7 +3,7 @@
 using namespace std;
 
 void quest1() {
-    string rddlans;
+    string level_1_qst_inp;
 
     cout << "LEVEL 1: Explore the Forest" << endl;
     cout << "PROMPT: ....Travelling across the forest..... " << endl;
@@ -15,9 +15,9 @@ void quest1() {
     while (true) {
         for (int attempts = 3; attempts > 0; --attempts) {
             cout << "What is brown and sticky? (" << attempts << " attempts remaining)" << endl;
-            getline(cin, rddlans);
+            getline(cin, level_1_qst_inp);
 
-            if (rddlans == "Stick" || rddlans == "stick" || rddlans == "A stick" || rddlans == "A Stick" || rddlans == "A STICK" || rddlans == "STICK") {
+            if (level_1_qst_inp == "Stick" || level_1_qst_inp == "stick" || level_1_qst_inp == "A stick" || level_1_qst_inp == "A Stick" || level_1_qst_inp == "A STICK" || level_1_qst_inp == "STICK") {
                 cout << "Riddle Solved!" << endl;
                 return;
             } else {
@@ -27,7 +27,22 @@ void quest1() {
 
         cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
 
 int main() {
     quest1();

@@ -52,14 +52,13 @@ void quest1() {
          cout <<endl;
         }
         
-        char<<battle_choice;
-        cin >>battle_choice;
-
         cout<<"Your Health: "<< player_Health << endl;
         cout << "Press '1' to attack: ";
        
 
 //Player Attack
+        char battle_choice;
+        cin >>battle_choice;
         if (battle_choice == '1')
         {   
         int player_Attack = rand() % 13 + 1;

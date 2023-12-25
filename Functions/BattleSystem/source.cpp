@@ -14,18 +14,34 @@ cout<<"A Cave?? I wonder."<<endl;
 
 cout<<"PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)"<<endl;
 
+while (true) {
+
 for(int attempts=3; attempts>0; --attempts)
-{
-cout<<"What is brown and sticky?"<<"("<<attmpts<<"attempts remaining"<<")"<<endl;
+
+  {
+cout<<"What is brown and sticky?"<<"("<<attempts<<"attempts remaining"<<")"<<endl;
 getline(cin,rddlans);
 
-if(rddlans!=Stick||stick||A stick||A Stick||A STICK||STICK)
-{cout<<"Oops! Incorrect Answer, Try Again"<<"("<< attempts <<")"<<"remaining"<<endl;
+if(rddlans == Stick||stick||A stick||A Stick||A STICK||STICK)
+{ cout<<"Riddle Solved!"<<endl;
+break;
  
 }
 else
-cout<<"Riddle Solved!"<<endl;
-break;
+{
+cout << "Oops! Incorrect Answer. Try Again. (" << attempts - 1 << " attempts remaining)" << endl;
+}
+
+  }
+
+if (rddlans != correctAnswer) 
+{
+cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
+ 
+}
+return 0;
+}
+
 }
 
 

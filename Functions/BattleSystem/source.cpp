@@ -36,7 +36,8 @@ void quest1() {
     cout << "HUH! WHO's THERE?! "<< endl;
     cout << "GOBLIN: You picked the wrong den kid (AHAAHHAHA) ! "<< endl;
     cout << "PROMPT: THE GOBLINS ARE CONFRONTING YOU FOR TRESPASSING, FEND THEM OFF ! "<<endl;
-    
+
+//Battle   
     const int nGoblins= 3;               
     int Goblin_Health[nGoblins] = {50,50,50}; 
     int player_Health = 100;
@@ -44,37 +45,57 @@ void quest1() {
 
     while (true) 
     {
-       cout<<"Your Health: "<< player_Health << endl;
-       cout << "Press '1' to attack: ";
-
-       char<<input_battle;
-       cin >>input_battle;
        for (int i = 0; i < nGoblins; i++) 
         {
          cout << "Goblin " << i + 1 << endl;
          cout << " Health: " << Goblin_Health[i] << " ";
          cout <<endl;
         }
+        
+        char<<input_battle;
+        cin >>input_battle;
 
-     
+        cout<<"Your Health: "<< player_Health << endl;
+        cout << "Press '1' to attack: ";
+       
+
+//Player Attack
+        if (userInput == '1')
+        {   
         int player_Attack = rand() % 13 + 1;
         Goblin_Health[0] -= player_Attack; 
-        cout << "Attacked Goblin with" << player_Attack << " damage!" << endl;
- 
-    }
+        cout << "Goblin attacked with" << player_Attack << " damage!" << endl;
+        }
 
+        if (Goblin_Health[0] <= 0)
+        {
+            cout << "Goblin defeated!" << endl;
+            break;  
+        }
 
+        else 
+        {
+            cout << "Invalid input. Try again." << endl;
+            continue;
+        }
 
+// Goblins Attack
+        for (int i = 0; i < nGoblins; ++i) {
+            int Goblin_Attack = rand() % 6 + 1;  
+            player_Health -= Goblin_Attack;
 
+            cout << "You got attacked by"<<"Goblin"<< i + 1 << "for" << Goblin_Attack << " damage!" << endl;
 
-
-
-
+            
+            if (player_Health <= 0) 
+            {
+                cout << "You were defeated by the goblins. Game Over!" << endl;
+                return;  
+            }
 
 }
-
-
-
+    }
+       }  
 
 int main() {
     quest1();

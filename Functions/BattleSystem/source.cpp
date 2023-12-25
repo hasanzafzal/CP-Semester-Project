@@ -9,15 +9,15 @@ void quest1() {
     string level_1_qst_inp;
     bool riddleSolved = false;
 
-    // Quest 1 , Level 1
-    cout << "LEVEL 1: Explore the Forest" << endl;
-    cout << "PROMPT: ....Travelling across the forest..... " << endl;
-    cout << "PROMPT: You have reached Grovetopia Falls " << endl;
-    cout << "Wait! What's that dark corner right there?...." << endl;
-    cout << "A Cave?? I wonder." << endl;
-    cout << "PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)" << endl;
-
     while (true) {
+        // Quest 1 , Level 1
+        cout << "LEVEL 1: Explore the Forest" << endl;
+        cout << "PROMPT: ....Travelling across the forest..... " << endl;
+        cout << "PROMPT: You have reached Grovetopia Falls " << endl;
+        cout << "Wait! What's that dark corner right there?...." << endl;
+        cout << "A Cave?? I wonder." << endl;
+        cout << "PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)" << endl;
+
         for (int attempts = 3; attempts > 0; --attempts) {
             cout << "What is brown and sticky? (" << attempts << " attempts remaining)" << endl;
             getline(cin, level_1_qst_inp);
@@ -32,14 +32,14 @@ void quest1() {
         }
 
         if (riddleSolved) {
-            cout << "Out of attempts. Riddle solved. Proceeding to the next level..." << endl;
-            break;  // This break exits the while loop
+            cout << "Proceeding to the next level..." << endl;
+            break;  
         } else {
             cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
         }
     }
 
-    //Quest 1 Level 2
+//Quest 1 Level 2
     cout << "LEVEL 2: Goblin Mania" << endl;
     cout << "PROMPT: You have reached inside the cave.... " << endl;
     cout << "Hmm..., Its darken here. " << endl;

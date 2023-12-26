@@ -52,8 +52,23 @@ string cureAnswer;
         return;
     }
 
+     // LEVEL 2
+    cout << " LEVEL 2:" << endl;
+    cout << "* The dehydration is getting me again *" << endl;
+    cout << " PROMPT: HEALTH --" << endl;
+    cout << "* I can't sustain desert heat for long,  need to find some water*" << endl;
+    cout << "PROMPT: Travelling in search of water " << endl;
+    cout << "* I hope I make it *" << endl;
+    cout << "* Is that a well right there? Don't give me hope! *" << endl;
+    cout << "* Let's reach there before my health gets worse *" << endl;
+    cout << "HEALTH --" << endl;
+    cout << "* Almost there*" << endl;
+    cout << "* Let's fetch some water: *" << endl;
+    cout<<"PROMPT: Solve a riddle to get some water: "
+    cout << "Feed me and I live. Give me a drink and I die. What am I?" << endl;
     
-
+    cout << "ONLY 1 ATTEMPT !" << endl;
+    
  
 
 

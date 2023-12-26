@@ -61,10 +61,9 @@ void quest3() {
 
     string waterAnswer;
     cout << "Enter your answer: "<<endl;
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    getline(cin, waterAnswer);
+    cin>>waterAnswer;
 
-    if (waterAnswer =="Fire"|| waterAnswer =="FIRE"|| waterAnswer =="fire"|| waterAnswer=="a fire") 
+    if (waterAnswer =="Fire"|| waterAnswer =="FIRE"|| waterAnswer =="fire") 
     {
         cout << "Correct! HEALTH++" << endl;
         playerHealth += 50;

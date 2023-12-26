@@ -60,7 +60,7 @@ void quest3() {
 
     string waterAnswer;
     cout << "Enter your answer: "<<endl;
-    cin.ignore();
+    cin.ignore();  
     getline(cin, waterAnswer);
 
     if (waterAnswer == "A Fire" || waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "A FIRE" || waterAnswer == "fire" || waterAnswer == "a fire") 

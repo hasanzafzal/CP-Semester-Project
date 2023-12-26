@@ -60,7 +60,8 @@ void quest3() {
 
     string waterAnswer;
     cout << "Enter your answer: "<<endl;
-    cin >> waterAnswer;
+    cin.ignore();
+    getline(cin, waterAnswer);
 
     if (waterAnswer == "A Fire" || waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "A FIRE" || waterAnswer == "fire" || waterAnswer == "a fire") 
     {
@@ -112,7 +113,7 @@ void quest3() {
 
             // Griffin Attack
             int griffinAttack = rand() % 11 + 1;
-            playerHealth -= max(0, griffinAttack);
+            playerHealth -= griffinAttack;
 
             cout << "The Griffin attacked you with " << max(0, griffinAttack) << " damage!" << endl;
 

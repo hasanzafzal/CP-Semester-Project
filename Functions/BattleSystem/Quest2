@@ -108,7 +108,7 @@ void quest2() {
     cout << "LEVEL 2: Let's Continue" << endl;
     cout << "The hills seem to have some traces that might help us solve the mystery of Eldoria" << endl;
     cout << "PROMPT: Look there ! Looks like we have found our first trace: [ A ]" << endl;
-    cout << "PROMPT: KEEP LOOKING FOR MORE BLUEPRINTS, THERE MUST BE MORE AROUND HERE." << endl;
+    cout << "PROMPT: Keep looking for more blueprints, there must be more around here." << endl;
     cout << "* Fetching for more traces... *" << endl;
     cout << "* What's this? *" << endl;
 

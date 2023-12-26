@@ -36,7 +36,8 @@ void quest3() {
         }
     }
 
-    if (playerHealth <= 0) {
+    if (playerHealth <= 0)
+     {
         cout << "Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!" << endl;
         return;
     }
@@ -60,6 +61,7 @@ void quest3() {
 
     string waterAnswer;
     cout << "Enter your answer: "<<endl;
+    cin.clear();
     cin.ignore();  
     getline(cin, waterAnswer);
 
@@ -67,7 +69,9 @@ void quest3() {
     {
         cout << "Correct! HEALTH++" << endl;
         playerHealth += 50;
-    } else {
+    } 
+    
+    else {
         cout << "Incorrect! Game over!" << endl;
         return;
     }

@@ -5,6 +5,29 @@
 
 using namespace std;
 
-void quest3() {
- 
+void quest3() #include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
 
+using namespace std;
+
+void quest3() {
+    int playerHealth = 100;
+
+    // LEVEL 1
+    cout << "QUEST 3: HOVE DESERT" << endl;
+    cout << " LEVEL 1:" << endl;
+    cout << "* Ah, very hot weather, looks like this will be challenging *" << endl;
+    cout << "PROMPT: We need to find some water first to avoid dehydration " << endl;
+    cout << "* AHH! What was that? *"<<endl;
+    cout<<"PROMPT: A snake has bitten your leg " << endl;
+    cout << "* I need to find a cure*" << endl;
+    cout << "* There's a desert herb nearby, let's see if I can find something there*" << endl;
+    cout << "PROMPT: Time to solve a problem to successfully extract the cure and apply it " << endl;
+    cout<<"PROMPT: Unjumble the following word: "
+    cout << "[AEDOLIR]" << endl;
+    cout << "* What can it be? *" << endl;
+    
+
+    

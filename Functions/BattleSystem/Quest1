@@ -5,12 +5,19 @@
 
 using namespace std;
 
+struct Player {
+    int health;
+};
+
 void quest1() {
+    Player player;
+    player.health = 100;
+
     string level_1_qst_inp;
     bool riddleSolved = false;
 
     while (true) {
-        // Quest 1 , Level 1
+        // Quest 1, Level 1
         cout << "LEVEL 1: Explore the Forest" << endl;
         cout << "PROMPT: ....Travelling across the forest..... " << endl;
         cout << "PROMPT: You have reached Grovetopia Falls " << endl;
@@ -39,7 +46,7 @@ void quest1() {
         }
     }
 
-    //Quest 1 Level 2
+    // Quest 1, Level 2
     cout << "LEVEL 2: Goblin Mania" << endl;
     cout << "PROMPT: You have reached inside the cave.... " << endl;
     cout << "Hmm..., Its darken here. " << endl;
@@ -49,10 +56,9 @@ void quest1() {
     cout << "GOBLIN: You picked the wrong den kid (AHAAHHAHA) ! " << endl;
     cout << "PROMPT: THE GOBLINS ARE CONFRONTING YOU FOR TRESPASSING, FEND THEM OFF ! " << endl;
 
-    //Battle
+    // Battle
     const int nGoblins = 3;
     int Goblin_Health[nGoblins] = {50, 50, 50};
-    //int player.health = 100; (will accept from struct of prev functions)
 
     while (true) {
         int defeatedGoblins = 0;
@@ -112,44 +118,10 @@ void quest1() {
             cout << "All goblins defeated!" << endl;
             break;
         }
-
-
-        //Quest 1 Level 3
-        cout << "LEVEL 3: Something's In There" << endl;
-        cout << "PROMPT: Continue exploring inside the cave.... " << endl;
-        cout << "PROMPT: Further inside the cave...." << endl;
-        cout << "Huh , Whats this chest? I better find out."<<endl;
-        cout<<"PROMPT: Solve a riddle to unlock the chest"<<endl;
-        string level_3_qinput;
-        for (int attempts = 3; attempts > 0; --attempts) {
-            cout << "What gets broken without being held?? (" << attempts << " attempts remaining)" << endl;
-            getline(cin, level_3_qinput);
-
-            if (level_3_qinput == "promise" || level_3_qinput == "A promise" || level_3_qinput == "PROMISE" || level_3_qinput == "Promise" || level_3_qinput == "A PROMISE" || level_3_qinput == "A Promise") {
-                cout << "Riddle Solved!" << endl;
-                riddleSolved = true;
-                break;
-            } else {
-                cout << "Oops! Incorrect Answer. Try Again. (" << attempts - 1 << " attempts remaining)" << endl;
-            }
-        }
-
-        if (riddleSolved) {
-            cout << "Proceeding to the next level..." << endl;
-            break;
-        } else {
-            cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
-        }
-    
-
-
-
-
-
     }
 
+    // Rest of the quest...
 }
-
 
 int main() {
     quest1();

@@ -61,8 +61,7 @@ void quest3() {
 
     string waterAnswer;
     cout << "Enter your answer: "<<endl;
-    cin.clear();
-    cin.ignore();  
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, waterAnswer);
 
     if (waterAnswer =="Fire"|| waterAnswer =="FIRE"|| waterAnswer =="fire"|| waterAnswer=="a fire") 

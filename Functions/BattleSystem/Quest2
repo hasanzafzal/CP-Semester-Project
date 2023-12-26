@@ -1,4 +1,156 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <ctime>
+#include <ctime> 
+using namespace std;
+void quest2() {
+    int playerHealth = 100; 
+
+    // Level 1: Hills, Grassland, and a Distant River
+    cout << "QUEST 2: HEARTLANDS" << endl;
+    cout << "LEVEL 1: HILLS, GRASSLAND AND A DISTANT RIVER" << endl;
+    cout << "FIND ANY SIGNS THAT MAY LED TO CLUES ABOUT THE ALLEGED SECRETS OF ELDORIA" << endl;
+    cout << "You are currently near heartland hills, to cross the river you must solve a riddle:" << endl;
+    cout << "What has a mouth but can’t chew?" << endl;
+    cout << "Answer: A river" << endl;
+
+    int attempts = 3;
+    string riverRiddleAnswer;
+    while (attempts > 0) {
+        cout << "Enter your answer (" << attempts << " attempts remaining): ";
+        getline(cin, riverRiddleAnswer);
+
+        if (riverRiddleAnswer == "A river" ||riverRiddleAnswer == "A River"||riverRiddleAnswer == "RIVER" || riverRiddleAnswer == "A RIVER"||riverRiddleAnswer == "river" ) {
+            cout << "Riddle Solved! You're on the other side of the river. Let's proceed to the Heartland Hills." << endl;
+            break;
+        } else {
+            cout << "Incorrect answer. Try again." << endl;
+            attempts--;
+        }
+    }
+
+    if (attempts == 0) {
+        cout << "Out of attempts. Restarting the quest..." << endl;
+        return;
+    }
+
+    // Level 1.2: Confrontation with Wolves
+    cout << "DID YOU HEAR A WEIRD SOUND? WHAT'S THAT?" << endl;
+    cout << "*GRRR! HOWLL! *" << endl;
+    cout << "OH NO! THE SOUND SEEMS TO INCREASE, IT'S COMING CLOSER! WHAT DO WE DO?" << endl;
+    cout << "* YOURE CONFRONTED BY A PACK OF WOLVES, FIGHT THEM OFF WITH YOUR WEAPON *" << endl;
+
+    // Battle with Wolves
+    const int nWolves = 3;
+    int wolfHealth[nWolves] = {30, 30, 30};
+
+    while (true) {
+        int defeatedWolves = 0;
+
+        for (int i = 0; i < nWolves; i++) {
+            cout << "Wolf " << i + 1 << endl;
+            cout << " Health: " << max(0, wolfHealth[i]) << " ";
+            cout << endl;
+        }
+
+        cout << "Your Health: " << max(0, playerHealth) << endl;
+        cout << "Press '1' to attack: ";
+
+        // Player Attack
+        char battleChoice;
+        cin >> battleChoice;
+
+        if (battleChoice == '1') {
+            for (int i = 0; i < nWolves; i++) {
+                int playerAttack = rand() % 11 + 1;
+                wolfHealth[i] -= playerAttack;
+                cout << "Wolf " << i + 1 << " attacked with " << playerAttack << " damage!" << endl;
+            }
+        } else {
+            cout << "Invalid input. Try again." << endl;
+            cin.clear();  
+            cin.ignore('\n');  
+            continue;
+        }
+
+        for (int i = 0; i < nWolves; i++) {
+            if (wolfHealth[i] <= 0) {
+                defeatedWolves++;
+                wolfHealth[i] = 0;
+            }
+        }
+
+        if (defeatedWolves > 0) {
+            cout << "Defeated " << defeatedWolves << " wolves!" << endl;
+        }
+
+        // Wolves Attack
+        for (int i = 0; i < nWolves; ++i) {
+            int wolfAttack = rand() % 6 + 1;
+            playerHealth -= max(0, wolfAttack);
+
+            cout << "You got attacked by Wolf " << i + 1 << " for " << max(0, wolfAttack) << " damage!" << endl;
+
+            if (playerHealth <= 0) {
+                cout << "You were defeated by the wolves. Game Over!" << endl;
+                return;
+            }
+        }
+
+        // Wolves defeat check
+        if (defeatedWolves == nWolves) {
+            cout << "All wolves defeated!" << endl;
+            break;
+        }
+    }
+
+    // Level 2: Heartland Hills Traces
+    cout << "LEVEL 2: LET'S CONTINUE" << endl;
+    cout << "THE HILLS SEEM TO HAVE SOME TRACES THAT MIGHT HELP US SOLVE THE MYSTERY OF ELDORIA" << endl;
+    cout << "LOOK THERE! LOOKS LIKE YOU FOUND THE FIRST TRACE: [ A ]" << endl;
+    cout << "KEEP LOOKING FOR MORE BLUEPRINTS, THERE MUST BE MORE AROUND HERE." << endl;
+    cout << "* Fetching for more traces *" << endl;
+    cout << "* What's this? *" << endl;
+
+    // More exploration and traces...
+
+    // Level 2.2: Arranging Blueprints
+    cout << "ANOTHER TRACE AND NOT ONE BUT TWO! WHAT A LUCKY DAY: [ H, R ]" << endl;
+    cout << "WE JUST NEED A FEW MORE!" << endl;
+    cout << "HOW ABOUT WE ARRANGE THE EXISTING BLUEPRINTS IN CORRECT ORDER: _AHR_A" << endl;
+    cout << "Guess the remaining letters, what can the word be?" << endl;
+    cout << "YOU HAVE 3 CHANCES TO GUESS THE WORD CLEARLY" << endl;
+
+    string remainingWord;
+    for (int guessAttempts = 3; guessAttempts > 0; --guessAttempts) {
+        cout << "Enter your guess (" << guessAttempts << " attempts remaining): ";
+        cin >> remainingWord;
+
+        if (remainingWord == "CHAIR") {
+            cout << "YOU GUESSED IT CORRECT!" << endl;
+            break;
+        } else {
+            cout << "Incorrect guess. Try again." << endl;
+        }
+    }
+
+    if (remainingWord != "CHAIR") {
+        cout << "Out of attempts. Game Over! Restarting the quest..." << endl;
+        return;
+    }
+
+    // Level 2.3: Final Trace
+    cout << "SEARCHING FOR THE FINAL TRACE NOW" << endl;
+    cout << "IT MUST BE EASY SINCE WE GUESSED THE REMAINING BLUEPRINTS LIKE THE LEGEND OF ELDORIA MENTIONED" << endl;
+    cout << "Look over there: [ B I ]" << endl;
+    cout << "JUST AS EXPECTED" << endl;
+
+    // Dialogue
+    cout << "Belisarius arranges all the discovered blueprints together, it magically forms a hidden map beyond the apparent realm of Eldoria." << endl;
+    cout << "Could this be a way towards the resolution of uncovering the reality of Eldoria?" << endl;
+}
+
+int main() {
+    quest2();
+    return 0;
+}

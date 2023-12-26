@@ -59,14 +59,15 @@ void quest3() {
     cout << "ONLY 1 ATTEMPT !" << endl;
 
     string waterAnswer;
-    cout << "Enter your answer: ";
+    cout << "Enter your answer: "<<endl;
     cin >> waterAnswer;
 
-    if (waterAnswer == "A Fire" || waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "A FIRE" || waterAnswer == "fire" || waterAnswer == "a fire") {
+    if (waterAnswer == "A Fire" || waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "A FIRE" || waterAnswer == "fire" || waterAnswer == "a fire") 
+    {
         cout << "Correct! HEALTH++" << endl;
         playerHealth += 50;
     } else {
-        cout << "Incorrect? Game over!" << endl;
+        cout << "Incorrect! Game over!" << endl;
         return;
     }
 

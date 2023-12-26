@@ -12,43 +12,40 @@ void quest3() {
     cout << " LEVEL 1:" << endl;
     cout << "* Ah, very hot weather, looks like this will be challenging *" << endl;
     cout << "PROMPT: We need to find some water first to avoid dehydration " << endl;
-    cout << "* AHH! What was that? *"<<endl;
-    cout<<"PROMPT: A snake has bitten your leg " << endl;
+    cout << "* AHH! What was that? *" << endl;
+    cout << "PROMPT: A snake has bitten your leg " << endl;
     cout << "* I need to find a cure*" << endl;
     cout << "* There's a desert herb nearby, let's see if I can find something there*" << endl;
     cout << "PROMPT: Time to solve a problem to successfully extract the cure and apply it " << endl;
-    cout<<"PROMPT: Unjumble the following word: "
+    cout << "PROMPT: Unjumble the following word: ";
     cout << "[AEDOLIR]" << endl;
     cout << "* What can it be? *" << endl;
-    
-string cureAnswer;
-    for (int attempts = 3; attempts > 0; --attempts) 
-    {
+
+    string cureAnswer;
+    for (int attempts = 3; attempts > 0; --attempts) {
         cout << "Enter your answer (" << attempts << " attempts remaining): ";
         getline(cin, cureAnswer);
 
-        if (cureAnswer == "ELDORIA") 
-        {
+        if (cureAnswer == "ELDORIA") {
             cout << "You did that correctly! Cure successfully applied, health replenishment ++" << endl;
             break;
         } else {
             cout << "Incorrect answer. Try again." << endl;
             playerHealth -= 40;
-            cout<<"Your health is" <<playerHealth;
+            cout << "Your health is " << playerHealth << endl;
         }
     }
 
-    if (playerHealth <= 0) 
-    {
+    if (playerHealth <= 0) {
         cout << "Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!" << endl;
         return;
     }
 
-     // LEVEL 2
+    // LEVEL 2
     cout << " LEVEL 2:" << endl;
     cout << "* The dehydration is getting me again *" << endl;
     cout << " PROMPT: HEALTH --" << endl;
-    cout << "* I can't sustain desert heat for long,  need to find some water*" << endl;
+    cout << "* I can't sustain desert heat for long, need to find some water*" << endl;
     cout << "PROMPT: Travelling in search of water " << endl;
     cout << "* I hope I make it *" << endl;
     cout << "* Is that a well right there? Don't give me hope! *" << endl;
@@ -56,7 +53,7 @@ string cureAnswer;
     cout << "HEALTH --" << endl;
     cout << "* Almost there*" << endl;
     cout << "* Let's fetch some water: *" << endl;
-    cout<<"PROMPT: Solve a riddle to get some water: "<<endl;
+    cout << "PROMPT: Solve a riddle to get some water: " << endl;
     cout << "Feed me and I live. Give me a drink and I die. What am I?" << endl;
 
     cout << "ONLY 1 ATTEMPT !" << endl;
@@ -65,20 +62,17 @@ string cureAnswer;
     cout << "Enter your answer: ";
     cin >> waterAnswer;
 
-    if (waterAnswer == "A Fire"||waterAnswer == "Fire"||waterAnswer == "FIRE"||waterAnswer == "A FIRE"||waterAnswer == "fire"||waterAnswer == "a fire")
-    {
+    if (waterAnswer == "A Fire" || waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "A FIRE" || waterAnswer == "fire" || waterAnswer == "a fire") {
         cout << "Correct! HEALTH++" << endl;
         playerHealth += 50;
     } else {
         cout << "Incorrect? Game over!" << endl;
         return;
     }
-    
- 
+
     // LEVEL 3
     cout << "LEVEL 3:" << endl;
     cout << "* Feeling better now, hydrated at last! *" << endl;
-    cout << << endl;
     cout << "* Continuing the journey to discover the truth*" << endl;
     cout << "* What's that creature right there; I hope it's harmless? *" << endl;
     cout << "* Let's see if it leads somewhere? *" << endl;
@@ -92,8 +86,7 @@ string cureAnswer;
 
     cout << "PROMPT: DEFEAT THE BEAST:" << endl;
 
-    int playerHealth = 100;
-    int griffinHealth = 60;  
+    int griffinHealth = 60;
 
     cout << "You encountered a Griffin! Get ready for battle." << endl;
 
@@ -111,11 +104,10 @@ string cureAnswer;
             griffinHealth -= playerAttack;
             cout << "You attacked the Griffin with " << playerAttack << " damage!" << endl;
 
-            if (griffinHealth <= 0)
-             {
+            if (griffinHealth <= 0) {
                 cout << "You defeated the Griffin! Victory!" << endl;
                 break;
-             }
+            }
 
             // Griffin Attack
             int griffinAttack = rand() % 6 + 1;
@@ -133,12 +125,14 @@ string cureAnswer;
             cin.ignore('\n');
         }
     }
-   
+
     cout << "* Ahh! That was a close one; I wonder what could have happened *" << endl;
-   // cout << "[MYSTERY STONES ADDED TO INVENTORY]" << endl;
-    cout << "These stones better give access to the lost lands as the legends stated." << endl;
-    cout << "IF LOSS, THEN GAME OVER" << endl;
+    // cout << "[MYSTERY STONES ADDED TO INVENTORY]" << endl;
+    //cout << "These stones better give access to the lost lands as the legends stated." << endl;
+
 }
 
-
-    
+int main() {
+    quest3();
+    return 0;
+}

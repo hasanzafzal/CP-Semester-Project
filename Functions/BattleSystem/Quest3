@@ -133,7 +133,7 @@ void quest3() {
     cout << "* Ahh! That was a close one; I wonder what could have happened *" << endl;
     // cout << "[MYSTERY STONES ADDED TO INVENTORY]" << endl;
     //cout << "These stones better give access to the lost lands as the legends stated." << endl;
-
+    
 }
 
 int main() {

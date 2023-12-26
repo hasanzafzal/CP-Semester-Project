@@ -124,7 +124,7 @@ void quest2() {
     string CorrectWord;
     for (int guessAttempts = 3; guessAttempts > 0; --guessAttempts) {
         cout << "Enter your guess (" << guessAttempts << " attempts remaining): ";
-        cin >> remainingWord;
+        cin >> CorrectWord;
 
         if (CorrectWord == "BAHRIA") {
             cout << "YOU GUESSED IT CORRECT!" << endl;

@@ -63,7 +63,7 @@ void quest3() {
     cin.ignore();  
     getline(cin, waterAnswer);
 
-    if (waterAnswer == "A Fire" || waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "A FIRE" || waterAnswer == "fire" || waterAnswer == "a fire") 
+    if (waterAnswer =="Fire"|| waterAnswer =="FIRE"|| waterAnswer =="fire"|| waterAnswer=="a fire") 
     {
         cout << "Correct! HEALTH++" << endl;
         playerHealth += 50;

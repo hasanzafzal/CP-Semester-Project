@@ -110,7 +110,7 @@ void quest3() {
             }
 
             // Griffin Attack
-            int griffinAttack = rand() % 6 + 1;
+            int griffinAttack = rand() % 11 + 1;
             playerHealth -= max(0, griffinAttack);
 
             cout << "The Griffin attacked you with " << max(0, griffinAttack) << " damage!" << endl;

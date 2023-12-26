@@ -2,14 +2,6 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-
-using namespace std;
-
-void quest3() #include <iostream>
-#include <string>
-#include <cstdlib>
-#include <ctime>
-
 using namespace std;
 
 void quest3() {
@@ -64,12 +56,43 @@ string cureAnswer;
     cout << "HEALTH --" << endl;
     cout << "* Almost there*" << endl;
     cout << "* Let's fetch some water: *" << endl;
-    cout<<"PROMPT: Solve a riddle to get some water: "
+    cout<<"PROMPT: Solve a riddle to get some water: "<<endl;
     cout << "Feed me and I live. Give me a drink and I die. What am I?" << endl;
-    
+
     cout << "ONLY 1 ATTEMPT !" << endl;
+
+    string waterAnswer;
+    cout << "Enter your answer: ";
+    cin >> waterAnswer;
+
+    if (waterAnswer == "A Fire"||waterAnswer == "Fire"||waterAnswer == "FIRE"||waterAnswer == "A FIRE"||waterAnswer == "fire"||waterAnswer == "a fire")
+    {
+        cout << "Correct! HEALTH++" << endl;
+        playerHealth += 50;
+    } else {
+        cout << "Incorrect? Game over!" << endl;
+        return;
+    }
     
  
+    // LEVEL 3
+    cout << "LEVEL 3:" << endl;
+    cout << "* Feeling better now, hydrated at last! *" << endl;
+    cout << << endl;
+    cout << "* Continuing the journey to discover the truth*" << endl;
+    cout << "* What's that creature right there; I hope it's harmless? *" << endl;
+    cout << "* Let's see if it leads somewhere? *" << endl;
+    cout << "PROMPT: Following the unknown animal, looks like a large bird" << endl;
+    cout << "* [SCREECH !!! GHHHHHHHHH !! KERRRRRRRRRR ]" << endl;
+    cout << "* Is that an eagle? Is that a lion? *" << endl;
+    cout << "OH NO! That's a griffin*" << endl;
+    cout << "DEFEAT THE BEAST:" << endl;
+    cout << "[ATTACK DEFEND]" << endl;
+    cout << "* Ahh! That was a close one; I wonder what could have happened *" << endl;
+    cout << "[MYSTERY STONES ADDED TO INVENTORY]" << endl;
+    cout << "These stones better give access to the lost lands as the legends stated." << endl;
+    cout << "IF LOSS, THEN GAME OVER" << endl;
+}
 
 
     

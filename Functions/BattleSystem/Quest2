@@ -35,10 +35,10 @@ void quest2() {
     }
 
     // Level 1.2: Confrontation with Wolves
-    cout << "DID YOU HEAR A WEIRD SOUND? WHAT'S THAT?" << endl;
+    cout << "PROMPT: DID YOU HEAR A WEIRD SOUND? WHAT'S THAT?" << endl;
     cout << "*GRRR! HOWLL! *" << endl;
-    cout << "OH NO! THE SOUND SEEMS TO INCREASE, IT'S COMING CLOSER! WHAT DO WE DO?" << endl;
-    cout << "* YOURE CONFRONTED BY A PACK OF WOLVES, FIGHT THEM OFF WITH YOUR WEAPON *" << endl;
+    cout << "OH NO! THE SOUND SEEMS TO INCREASE, IT'S COMING CLOSER! WHAT DO I DO?" << endl;
+    cout << "PROMPT: * YOURE CONFRONTED BY A PACK OF WOLVES, FIGHT THEM OFF WITH YOUR WEAPON *" << endl;
 
     // Battle with Wolves
     const int nWolves = 3;
@@ -57,10 +57,10 @@ void quest2() {
         cout << "Press '1' to attack: ";
 
         // Player Attack
-        char battleChoice;
-        cin >> battleChoice;
+        char Choice;
+        cin >> Choice;
 
-        if (battleChoice == '1') {
+        if (Choice == '1') {
             for (int i = 0; i < nWolves; i++) {
                 int playerAttack = rand() % 11 + 1;
                 wolfHealth[i] -= playerAttack;
@@ -85,7 +85,7 @@ void quest2() {
         }
 
         // Wolves Attack
-        for (int i = 0; i < nWolves; ++i) {
+        for (int i = 0; i < nWolves; i++) {
             int wolfAttack = rand() % 6 + 1;
             playerHealth -= max(0, wolfAttack);
 
@@ -105,19 +105,19 @@ void quest2() {
     }
 
     // Level 2: Heartland Hills Traces
-    cout << "LEVEL 2: LET'S CONTINUE" << endl;
-    cout << "THE HILLS SEEM TO HAVE SOME TRACES THAT MIGHT HELP US SOLVE THE MYSTERY OF ELDORIA" << endl;
-    cout << "LOOK THERE! LOOKS LIKE YOU FOUND THE FIRST TRACE: [ A ]" << endl;
-    cout << "KEEP LOOKING FOR MORE BLUEPRINTS, THERE MUST BE MORE AROUND HERE." << endl;
-    cout << "* Fetching for more traces *" << endl;
+    cout << "LEVEL 2: Let's Continue" << endl;
+    cout << "The hills seem to have some traces that might help us solve the mystery of Eldoria" << endl;
+    cout << "PROMPT: Look there ! Looks like we have found our first trace: [ A ]" << endl;
+    cout << "PROMPT: KEEP LOOKING FOR MORE BLUEPRINTS, THERE MUST BE MORE AROUND HERE." << endl;
+    cout << "* Fetching for more traces... *" << endl;
     cout << "* What's this? *" << endl;
 
     // More exploration and traces...
 
     // Level 2.2: Arranging Blueprints
-    cout << "ANOTHER TRACE AND NOT ONE BUT TWO! WHAT A LUCKY DAY: [ H, R ]" << endl;
-    cout << "WE JUST NEED A FEW MORE!" << endl;
-    cout << "HOW ABOUT WE ARRANGE THE EXISTING BLUEPRINTS IN CORRECT ORDER: _AHR_A" << endl;
+    cout << "Another trace and not one but two! What a lucky day: [ H, R ]" << endl;
+    cout << "We are almost there!" << endl;
+    cout << "How about we arrange the existing blueprints in correwct order: _AHR_A" << endl;
     cout << "Guess the remaining letters, what can the word be?" << endl;
     cout << "YOU HAVE 3 CHANCES TO GUESS THE WORD CLEARLY" << endl;
 
@@ -126,7 +126,7 @@ void quest2() {
         cout << "Enter your guess (" << guessAttempts << " attempts remaining): ";
         cin >> remainingWord;
 
-        if (remainingWord == "CHAIR") {
+        if (remainingWord == "BAHRIA") {
             cout << "YOU GUESSED IT CORRECT!" << endl;
             break;
         } else {

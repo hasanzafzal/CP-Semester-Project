@@ -82,14 +82,60 @@ string cureAnswer;
     cout << "* Continuing the journey to discover the truth*" << endl;
     cout << "* What's that creature right there; I hope it's harmless? *" << endl;
     cout << "* Let's see if it leads somewhere? *" << endl;
+
     cout << "PROMPT: Following the unknown animal, looks like a large bird" << endl;
-    cout << "* [SCREECH !!! GHHHHHHHHH !! KERRRRRRRRRR ]" << endl;
+
+    cout << "* Creature: [SCREECH !!! GHHHHHHHHH !! KERRRRRRRRRR! ]" << endl;
     cout << "* Is that an eagle? Is that a lion? *" << endl;
+
     cout << "OH NO! That's a griffin*" << endl;
-    cout << "DEFEAT THE BEAST:" << endl;
-    cout << "[ATTACK DEFEND]" << endl;
+
+    cout << "PROMPT: DEFEAT THE BEAST:" << endl;
+
+    int playerHealth = 100;
+    int griffinHealth = 60;  
+
+    cout << "You encountered a Griffin! Get ready for battle." << endl;
+
+    while (true) {
+        cout << "Griffin Health: " << max(0, griffinHealth) << endl;
+        cout << "Your Health: " << max(0, playerHealth) << endl;
+        cout << "Press '1' to attack: ";
+
+        // Player Attack
+        char choice;
+        cin >> choice;
+
+        if (choice == '1') {
+            int playerAttack = rand() % 11 + 1;
+            griffinHealth -= playerAttack;
+            cout << "You attacked the Griffin with " << playerAttack << " damage!" << endl;
+
+            if (griffinHealth <= 0)
+             {
+                cout << "You defeated the Griffin! Victory!" << endl;
+                break;
+             }
+
+            // Griffin Attack
+            int griffinAttack = rand() % 6 + 1;
+            playerHealth -= max(0, griffinAttack);
+
+            cout << "The Griffin attacked you with " << max(0, griffinAttack) << " damage!" << endl;
+
+            if (playerHealth <= 0) {
+                cout << "You were defeated by the Griffin. Game Over!" << endl;
+                return;
+            }
+        } else {
+            cout << "Invalid input. Try again." << endl;
+            cin.clear();
+            cin.ignore('\n');
+        }
+    }
+   
     cout << "* Ahh! That was a close one; I wonder what could have happened *" << endl;
-    cout << "[MYSTERY STONES ADDED TO INVENTORY]" << endl;
+   // cout << "[MYSTERY STONES ADDED TO INVENTORY]" << endl;
     cout << "These stones better give access to the lost lands as the legends stated." << endl;
     cout << "IF LOSS, THEN GAME OVER" << endl;
 }

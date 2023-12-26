@@ -29,5 +29,32 @@ void quest3() {
     cout << "[AEDOLIR]" << endl;
     cout << "* What can it be? *" << endl;
     
+string cureAnswer;
+    for (int attempts = 3; attempts > 0; --attempts) 
+    {
+        cout << "Enter your answer (" << attempts << " attempts remaining): ";
+        getline(cin, cureAnswer);
+
+        if (cureAnswer == "ELDORIA") 
+        {
+            cout << "You did that correctly! Cure successfully applied, health replenishment ++" << endl;
+            break;
+        } else {
+            cout << "Incorrect answer. Try again." << endl;
+            playerHealth -= 40;
+            cout<<"Your health is" <<playerHealth;
+        }
+    }
+
+    if (playerHealth <= 0) 
+    {
+        cout << "Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!" << endl;
+        return;
+    }
+
+    
+
+ 
+
 
     

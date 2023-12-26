@@ -117,16 +117,16 @@ void quest2() {
     // Level 2.2: Arranging Blueprints
     cout << "Another trace and not one but two! What a lucky day: [ H, R ]" << endl;
     cout << "We are almost there!" << endl;
-    cout << "How about we arrange the existing blueprints in correwct order: _AHR_A" << endl;
+    cout << "How about we arrange the existing blueprints in correct order: _AHR_A" << endl;
     cout << "Guess the remaining letters, what can the word be?" << endl;
-    cout << "YOU HAVE 3 CHANCES TO GUESS THE WORD CLEARLY" << endl;
+    cout << "PROMPT: YOU HAVE 3 CHANCES TO GUESS THE WORD CLEARLY" << endl;
 
-    string remainingWord;
+    string CorrectWord;
     for (int guessAttempts = 3; guessAttempts > 0; --guessAttempts) {
         cout << "Enter your guess (" << guessAttempts << " attempts remaining): ";
         cin >> remainingWord;
 
-        if (remainingWord == "BAHRIA") {
+        if (CorrectWord == "BAHRIA") {
             cout << "YOU GUESSED IT CORRECT!" << endl;
             break;
         } else {
@@ -134,14 +134,14 @@ void quest2() {
         }
     }
 
-    if (remainingWord != "CHAIR") {
+    if (CorrectWord != "BAHRIA") {
         cout << "Out of attempts. Game Over! Restarting the quest..." << endl;
         return;
     }
 
     // Level 2.3: Final Trace
-    cout << "SEARCHING FOR THE FINAL TRACE NOW" << endl;
-    cout << "IT MUST BE EASY SINCE WE GUESSED THE REMAINING BLUEPRINTS LIKE THE LEGEND OF ELDORIA MENTIONED" << endl;
+    cout << "Searching for the final trace now..." << endl;
+    cout << "It must be easy since we guessed the remaining blueprints like the Legend of Eldoria mentioned" << endl;
     cout << "Look over there: [ B I ]" << endl;
     cout << "JUST AS EXPECTED" << endl;
 

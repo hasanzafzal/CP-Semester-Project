@@ -241,25 +241,22 @@ void restartQuest2(Character character);
 
 void quest2(Character character) {
     int playerHealth = 100;
-    cout << "You've chosen Quest 2";
-    cout << endl;
     // Level 1: Hills, Grassland, and a Distant River
     cout << "QUEST 2: HEARTLANDS" << endl;
-    cout << "LEVEL 1: HILLS, GRASSLAND AND A DISTANT RIVER" << endl;
-    cout << "FIND ANY SIGNS THAT MAY LEAD TO CLUES ABOUT THE ALLEGED SECRETS OF ELDORIA" << endl;
-    cout << "You are currently near heartland hills, to cross the river you must solve a riddle:" << endl;
-    cout << "What has a mouth but cant chew?" << endl;
+    rout ("LEVEL 1: HILLS, GRASSLAND AND A DISTANT RIVER\n");
+    rout("FIND ANY SIGNS THAT MAY LEAD TO CLUES ABOUT THE ALLEGED SECRETS OF ELDORIA\n");
+    rout ("You are currently near heartland hills, to cross the river you must solve a riddle:\n");
+    rout ("What has a mouth but cant chew?\n");
 
     cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
     int attempts = 3;
     string riverRiddleAnswer;
     while (attempts > 0) {
         cout << "Enter your answer (" << attempts << " attempts remaining): ";
-
         getline(cin, riverRiddleAnswer);
 
         if (riverRiddleAnswer == "A river" || riverRiddleAnswer == "A River" || riverRiddleAnswer == "RIVER" || riverRiddleAnswer == "A RIVER" || riverRiddleAnswer == "river" || riverRiddleAnswer == "River") {
-            cout << "Riddle Solved! You're on the other side of the river. Let's proceed to the Heartland Hills." << endl;
+            rout ("Riddle Solved! You're on the other side of the river. Let's proceed to the Heartland Hills.\n");
             break;
         }
         else {
@@ -399,7 +396,7 @@ void quest3() {
     int playerHealth = 100;
 
     // LEVEL 1
-    rout("\nQUEST 3: HOVE DESERT\n");
+    cout << "\nQUEST 3: HOVE DESERT\n";
     rout(" LEVEL 1:\n");
     rout("* Ah, very hot weather, looks like this will be challenging *\n");
     rout("PROMPT: We need to find some water first to avoid dehydration \n");
@@ -419,13 +416,13 @@ void quest3() {
         getline(cin, cureAnswer);
 
         if (cureAnswer == "ELDORIA") {
-            rout("You did that correctly! Cure successfully applied, health replenishment ++\n");
+            cout << "You did that correctly! Cure successfully applied, health replenishment ++\n";
             break;
         }
         else {
-            rout("Incorrect answer. Try again.\n");
+            rout ("Incorrect answer. Try again.\n");
             playerHealth -= 40;
-            rout("Your health is " + to_string(playerHealth) + "\n");
+            cout << "Your health is " + to_string(playerHealth) + "\n";
         }
     }
 
@@ -435,7 +432,7 @@ void quest3() {
     }
 
     // LEVEL 2
-    rout(" LEVEL 2:\n");
+    cout << " LEVEL 2:\n";
     rout("* The dehydration is getting me again *\n");
     rout(" PROMPT: HEALTH --\n");
     rout("* I can't sustain desert heat for long, need to find some water*\n");
@@ -465,7 +462,7 @@ void quest3() {
     }
 
     // LEVEL 3
-    rout("LEVEL 3:\n");
+    cout << "LEVEL 3:\n";
     rout("* Feeling better now, hydrated at last! *\n");
     rout("* Continuing the journey to discover the truth*\n");
     rout("* What's that creature right there; I hope it's harmless? *\n");
@@ -525,7 +522,6 @@ void quest3() {
     rout("* Ahh! That was a close one; I wonder what could have happened *\n");
  }
 int main() {
-    char choice;
     Character player = createCharacter();
 
     cout << "Welcome, " << player.name << " the " << player.classType << "!" << endl;

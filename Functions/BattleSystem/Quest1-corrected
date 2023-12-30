@@ -1,0 +1,166 @@
+void quest1() {
+    Player player;
+    player.health = 100;
+    Inventory inventory;
+    inventory.healthPotionUsed = false;
+
+    string level_1_qst_inp;
+    bool riddleSolved = false;
+
+    while (true) {
+        cout << "Smart decision!" << endl;
+        cout << "You've chosen Quest 1"<<endl;
+        cout<<endl;
+        // Quest 1, Level 1
+        cout << "LEVEL 1: Explore the Forest" << endl;
+        cout << "PROMPT: ....Travelling across the forest..... " << endl;
+        cout << "PROMPT: You have reached Grovetopia Falls " << endl;
+        cout << "Wait! What's that dark corner right there?...." << endl;
+        cout << "A Cave?? I wonder." << endl;
+        cout << "PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)" << endl;
+
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+        for (int attempts = 3; attempts > 0; attempts--) 
+        {
+            cout << "What is brown and sticky? (" << attempts << " attempts remaining)" << endl;
+            getline(cin, level_1_qst_inp);
+
+            if (level_1_qst_inp == "Stick" || level_1_qst_inp == "stick" || level_1_qst_inp == "A stick" || level_1_qst_inp == "A Stick" || level_1_qst_inp == "A STICK" || level_1_qst_inp == "STICK") {
+                cout << "Riddle Solved!" << endl;
+                riddleSolved = true;
+                break;
+            } 
+            
+            else {
+            cout << "Oops! Incorrect Answer. Try Again. (" << attempts - 1 << " attempts remaining)" << endl;
+            
+            } 
+             
+        }
+
+        if (riddleSolved) {
+            cout<<"PROMPT: Added Health Potion to Inventory"<<endl;
+            inventory.inventory[1]= "Health Potion";   
+
+
+            cout << "Proceeding to the next level..." << endl;
+            break;
+        } else {
+            cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
+        }
+    }
+
+    cout<<endl;
+    // Quest 1, Level 2
+    cout << "LEVEL 2: Goblin Mania" << endl;
+    cout << "PROMPT: You have reached inside the cave.... " << endl;
+    cout << "Hmm..., Its darken here. " << endl;
+    cout << "PROMPT: Exploring inside the cave...." << endl;
+    cout << "SKREEEEEEEK!" << endl;
+    cout << "HUH! WHO's THERE?! " << endl;
+    cout << "GOBLIN: You picked the wrong den kid (AHAAHHAHA) ! " << endl;
+    cout << "PROMPT: THE GOBLINS ARE CONFRONTING YOU FOR TRESPASSING, FEND THEM OFF ! " << endl;
+    cout<<endl;
+
+    // Battle
+    const int nGoblins = 3;
+    int Goblin_Health[nGoblins] = {50, 50, 50};
+
+    while (true) {
+    int defeatedGoblins = 0;
+
+    for (int i = 0; i < nGoblins; i++) {
+        cout << "Goblin " << i + 1 << endl;
+        cout << " Health: " << max(0, Goblin_Health[i]) << " ";
+        cout << endl;
+    }
+
+    cout << "Your Health: " << max(0, player.health) << endl;
+    cout << "Press '1' to attack, 'p' to use health potion: ";
+
+    // Player Attack
+char battle_choice;
+cin >> battle_choice;
+
+  
+if (battle_choice == 'p') 
+    
+{
+    if (!inventory.healthPotionUsed && inventory.inventory[1] == "Health Potion") 
+    
+    {
+        player.health += 30;
+        inventory.healthPotionUsed = true;
+        cout << "Used Health Potion. Health +30!" << endl;
+
+    } 
+    
+    else if (inventory.healthPotionUsed) 
+    
+    {
+        cout << "Health potion already used in this battle." << endl;
+        continue; // Go back to the beginning of the loop
+    } 
+    
+    else 
+    
+    {
+        cout << "No health potion available." << endl;
+        continue; // Go back to the beginning of the loop
+    }
+
+} 
+
+    else if (battle_choice == '1') 
+    
+{   for (int i = 0; i < nGoblins; i++) 
+    
+    {
+        int player_Attack = rand() % 11 + 1;
+        Goblin_Health[i] -= player_Attack;
+        cout << "Goblin " << i + 1 << " attacked with " << player_Attack << " damage!" << endl;
+    }
+
+} 
+
+
+ else 
+ 
+{
+    cout << "Invalid input. Try again." << endl;
+    cin.clear();
+    cin.ignore('\n');
+    continue; // Go back to the beginning of the loop
+}
+
+    for (int i = 0; i < nGoblins; i++) {
+        if (Goblin_Health[i] <= 0) {
+            defeatedGoblins++;
+            Goblin_Health[i] = 0;
+        }
+    }
+
+    if (defeatedGoblins > 0) {
+        cout << "Defeated " << defeatedGoblins << " goblins!" << endl;
+    }
+
+    // Goblins Attack
+    for (int i = 0; i < nGoblins; ++i) {
+        int Goblin_Attack = rand() % 6 + 1;
+        player.health -= max(0, Goblin_Attack);
+
+        cout << "You got attacked by Goblin " << i + 1 << " for " << max(0, Goblin_Attack) << " damage!" << endl;
+
+        if (player.health <= 0) {
+            cout << "You were defeated by the goblins. Game Over!" << endl;
+            return;
+        }
+    }
+
+    // Goblin defeat check
+    if (defeatedGoblins == nGoblins) {
+        cout << "All goblins defeated!" << endl;
+        break;
+    }
+}
+}

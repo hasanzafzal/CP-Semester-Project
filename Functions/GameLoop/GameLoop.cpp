@@ -3,7 +3,7 @@
 using namespace std;
 
 // Quest function for Grovetopia
-void questGrovetopia(Character) {
+void questGrovetopia(Character& player) {
 	// Implement the quest logic for Grovetopia here
 	// ...
 
@@ -11,7 +11,7 @@ void questGrovetopia(Character) {
 }
 
 // Quest function for Heartlands
-void questHeartlands(Character) {
+void questHeartlands(Character& player) {
     // Implement the quest logic for Heartlands here
     // ...
 
@@ -19,7 +19,7 @@ void questHeartlands(Character) {
 }
 
 // Quest function for Hove Desert
-void questHoveDesert(Character) {
+void questHoveDesert(Character& player) {
     // Implement the quest logic for Hove Desert here
     // ...
 

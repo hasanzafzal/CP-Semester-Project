@@ -1,0 +1,130 @@
+void quest3() {
+    cout << "You've chosen Quest 3" << endl;
+    cout << "Best of Luck :D";
+    cout<<endl;
+    int playerHealth = 100;
+
+    // LEVEL 1
+    rpgStyleOutput("\nQUEST 3: HOVE DESERT\n");
+    rpgStyleOutput(" LEVEL 1:\n");
+    rpgStyleOutput("* Ah, very hot weather, looks like this will be challenging *\n");
+    rpgStyleOutput("PROMPT: We need to find some water first to avoid dehydration \n");
+    rpgStyleOutput("* AHH! What was that? *\n");
+    rpgStyleOutput("PROMPT: A snake has bitten your leg \n");
+    rpgStyleOutput("* I need to find a cure*\n");
+    rpgStyleOutput("* There's a desert herb nearby, let's see if I can find something there*\n");
+    rpgStyleOutput("PROMPT: Time to solve a problem to successfully extract the cure and apply it \n");
+    rpgStyleOutput("PROMPT: Unjumble the following word: ");
+    rpgStyleOutput("[AEDOLIR]\n");
+    rpgStyleOutput("* What can it be? *\n");
+
+    string cureAnswer;
+    cin.ignore(); // Clear the newline character left in the buffer
+    for (int attempts = 3; attempts > 0; --attempts) {
+        rpgStyleOutput("Enter your answer (" + to_string(attempts) + " attempts remaining): ");
+        getline(cin, cureAnswer);
+
+        if (cureAnswer == "ELDORIA") {
+            rpgStyleOutput("You did that correctly! Cure successfully applied, health replenishment ++\n");
+            break;
+        } else {
+            rpgStyleOutput("Incorrect answer. Try again.\n");
+            playerHealth -= 40;
+            rpgStyleOutput("Your health is " + to_string(playerHealth) + "\n");
+        }
+    }
+
+    if (playerHealth <= 0) {
+        rpgStyleOutput("Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!\n");
+        return;
+    }
+
+    // LEVEL 2
+    rpgStyleOutput(" LEVEL 2:\n");
+    rpgStyleOutput("* The dehydration is getting me again *\n");
+    rpgStyleOutput(" PROMPT: HEALTH --\n");
+    rpgStyleOutput("* I can't sustain desert heat for long, need to find some water*\n");
+    rpgStyleOutput("PROMPT: Travelling in search of water \n");
+    rpgStyleOutput("* I hope I make it *\n");
+    rpgStyleOutput("* Is that a well right there? Don't give me hope! *\n");
+    rpgStyleOutput("* Let's reach there before my health gets worse *\n");
+    rpgStyleOutput("HEALTH --\n");
+    rpgStyleOutput("* Almost there*\n");
+    rpgStyleOutput("* Let's fetch some water: *\n");
+    rpgStyleOutput("PROMPT: Solve a riddle to get some water: \n");
+    rpgStyleOutput("Feed me and I live. Give me a drink and I die. What am I?\n");
+
+    rpgStyleOutput("ONLY 1 ATTEMPT !\n");
+
+    string waterAnswer;
+    rpgStyleOutput("Enter your answer: \n");
+    cin >> waterAnswer;
+
+    if (waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "fire") {
+        rpgStyleOutput("Correct! HEALTH++\n");
+        playerHealth += 50;
+    } else {
+        rpgStyleOutput("Incorrect! Game over!\n");
+        return;
+    }
+
+    // LEVEL 3
+    rpgStyleOutput("LEVEL 3:\n");
+    rpgStyleOutput("* Feeling better now, hydrated at last! *\n");
+    rpgStyleOutput("* Continuing the journey to discover the truth*\n");
+    rpgStyleOutput("* What's that creature right there; I hope it's harmless? *\n");
+    rpgStyleOutput("* Let's see if it leads somewhere? *\n");
+
+    rpgStyleOutput("PROMPT: Following the unknown animal, looks like a large bird\n");
+
+    rpgStyleOutput("* Creature: [SCREECH !!! GHHHHHHHHH !! KERRRRRRRRRR! ]\n");
+    rpgStyleOutput("* Is that an eagle? Is that a lion? *\n");
+
+    rpgStyleOutput("OH NO! That's a griffin*\n");
+
+    rpgStyleOutput("PROMPT: DEFEAT THE BEAST:\n");
+
+    int griffinHealth = 60;
+
+    rpgStyleOutput("You encountered a Griffin! Get ready for battle.\n");
+
+    while (true) {
+        rpgStyleOutput("Griffin Health: " + to_string(max(0, griffinHealth)) + "\n");
+        rpgStyleOutput("Your Health: " + to_string(max(0, playerHealth)) + "\n");
+        rpgStyleOutput("Press '1' to attack: ");
+
+        // Player Attack
+        char choice;
+        cin >> choice;
+
+        if (choice == '1') {
+            int playerAttack = rand() % 11 + 1;
+            griffinHealth -= playerAttack;
+            rpgStyleOutput("You attacked the Griffin with " + to_string(playerAttack) + " damage!\n");
+
+            if (griffinHealth <= 0) {
+                rpgStyleOutput("You defeated the Griffin! Victory!\n");
+                break;
+            }
+
+            // Griffin Attack
+            int griffinAttack = rand() % 11 + 1;
+            playerHealth -= max(0, griffinAttack);
+
+            rpgStyleOutput("The Griffin attacked you with " + to_string(max(0, griffinAttack)) + " damage!\n");
+
+            if (playerHealth <= 0) {
+                rpgStyleOutput("You were defeated by the Griffin. Game Over!\n");
+                return;
+            }
+        } else {
+            rpgStyleOutput("Invalid input. Try again.\n");
+            cin.clear();
+            cin.ignore('\n');
+        }
+    }
+
+    rpgStyleOutput("* Ahh! That was a close one; I wonder what could have happened *\n");
+    // cout << "[MYSTERY STONES ADDED TO INVENTORY]" << endl;
+    // cout << "These stones better give access to the lost lands as the legends stated." << endl;
+}

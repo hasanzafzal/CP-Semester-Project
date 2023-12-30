@@ -541,7 +541,7 @@ int main() {
         quest2(player); // Pass the player character to quest2
         break;
     case '3':
-        quest3(player);
+        quest3();
         break;
     case 'X':
     case 'x':

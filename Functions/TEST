@@ -104,26 +104,32 @@ void quest1(Character character) {
     Inventory inventory;
     inventory.healthPotionUsed = false;
 
-    string level_1_qst_inp;
+    string forestRiddleAnswer;
     bool riddleSolved = false;
 
     while (true) {
         // Quest 1, Level 1
         cout << endl;
-        cout << "LEVEL 1: Explore the Forest" << endl;
-        cout << "PROMPT: ....Travelling across the forest..... " << endl;
-        cout << "PROMPT: You have reached Grovetopia Falls " << endl;
-        cout << "Wait! What's that dark corner right there?...." << endl;
-        cout << "A Cave?? I wonder." << endl;
-        cout << "PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)" << endl;
+        rout("LEVEL 1: Explore the Forest");
+        cout << endl;
+        rout ("PROMPT: ....Travelling across the forest..... ");
+        cout<< endl;
+        rout("PROMPT: You have reached Grovetopia Falls ");
+        cout << endl;
+        rout("Wait! What's that dark corner right there?....");
+        cout << endl;
+        rout("A Cave?? I wonder.");
+        cout << endl;
+        rout("PROMPT: TO ENTER THE CAVE, YOU MUST SOLVE THE RIDDLE (3 Attempts)");
+        cout << endl;
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         for (int attempts = 3; attempts > 0; attempts--) {
             cout << "What is brown and sticky? (" << attempts << " attempts remaining)" << endl;
-            getline(cin, level_1_qst_inp);
+            getline(cin, forestRiddleAnswer);
 
-            if (level_1_qst_inp == "Stick" || level_1_qst_inp == "stick" || level_1_qst_inp == "A stick" || level_1_qst_inp == "A Stick" || level_1_qst_inp == "A STICK" || level_1_qst_inp == "STICK") {
-                cout << "Riddle Solved!" << endl;
+            if (forestRiddleAnswer == "Stick" || forestRiddleAnswer == "stick" || forestRiddleAnswer == "A stick" || forestRiddleAnswer == "A Stick" || forestRiddleAnswer == "A STICK" || forestRiddleAnswer == "STICK") {
+                rout ("Riddle Solved!\n");
                 riddleSolved = true;
                 break;
             }
@@ -133,14 +139,14 @@ void quest1(Character character) {
         }
 
         if (riddleSolved) {
-            cout << "PROMPT: Added Health Potion to Inventory" << endl;
+            rout ("PROMPT: Added Health Potion to Inventory\n");
             inventory.inventory[1] = "Health Potion";
 
             cout << "Proceeding to the next level..." << endl;
             break;
         }
         else {
-            cout << "Out of attempts. Riddle not solved. Restarting the quest..." << endl;
+            rout ("Out of attempts. Riddle not solved. Restarting the quest...");
         }
         character.experience += 5;
     }
@@ -427,7 +433,7 @@ void quest3() {
     }
 
     if (playerHealth <= 0) {
-        rout("Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!\n");
+        cout << "Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!\n";
         return;
     }
 
@@ -449,7 +455,7 @@ void quest3() {
     rout("ONLY 1 ATTEMPT !\n");
 
     string waterAnswer;
-    rout("Enter your answer: \n");
+    cout << "Enter your answer: \n";
     cin >> waterAnswer;
 
     if (waterAnswer == "Fire" || waterAnswer == "FIRE" || waterAnswer == "fire") {
@@ -493,10 +499,10 @@ void quest3() {
         if (choice == '1') {
             int playerAttack = rand() % 11 + 1;
             griffinHealth -= playerAttack;
-            rout("You attacked the Griffin with " + to_string(playerAttack) + " damage!\n");
+            cout << "You attacked the Griffin with " + to_string(playerAttack) + " damage!\n";
 
             if (griffinHealth <= 0) {
-                rout("You defeated the Griffin! Victory!\n");
+                cout << "You defeated the Griffin! Victory!\n";
                 break;
             }
 

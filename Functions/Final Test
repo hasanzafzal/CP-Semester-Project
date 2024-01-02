@@ -321,6 +321,7 @@ void quest2(Character character) {
         getline(cin, riverRiddleAnswer);
 
         if (riverRiddleAnswer == "A river" || riverRiddleAnswer == "A River" || riverRiddleAnswer == "RIVER" || riverRiddleAnswer == "A RIVER" || riverRiddleAnswer == "river" || riverRiddleAnswer == "River") {
+            cout << endl;
             rout("Riddle Solved! You're on the other side of the river. Let's proceed to the Heartland Hills.\n");
             break;
         }
@@ -338,6 +339,7 @@ void quest2(Character character) {
     }
 
     // Quest 2 , Level 2: Confrontation with Wolves
+    cout << "Level 2: Let's Continue";
     rout("PROMPT: DID YOU HEAR A WEIRD SOUND? WHAT'S THAT?");
     cout << endl;
     rout("*GRRR! HOWLL! *");
@@ -415,7 +417,7 @@ void quest2(Character character) {
     }
 
     // Level 3: Heartland Hills Traces
-    cout << "LEVEL 2: Let's Continue" << endl;
+    cout << "LEVEL 3: Let's Continue" << endl;
     rout("The hills seem to have some traces that might help us solve the mystery of Eldoria");
     cout << endl;
     rout("PROMPT: Look there ! Looks like we have found our first trace: [ A ]");
@@ -556,7 +558,7 @@ void quest3() {
     }
 
     // LEVEL 3
-    cout << "LEVEL 3:\n";
+    cout << "LEVEL 3: Let's Continue\n";
     rout("* Feeling better now, hydrated at last! *\n");
     rout("* Continuing the journey to discover the truth*\n");
     rout("* What's that creature right there; I hope it's harmless? *\n");

@@ -649,7 +649,8 @@ int main() {
         case 'x':
             break;
         default:
-            cout << "Invalid choice. Please enter again." << endl;
+            rout("Invalid choice. Please enter again.");
+            cout << endl;
         }
 
     } while (questChoice != 'X' && questChoice != 'x');

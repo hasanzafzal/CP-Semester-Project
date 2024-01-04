@@ -46,7 +46,6 @@ void rout(const string& text)
 }
 
 
-
 Character createCharacter() {
     Character character;
 
@@ -81,7 +80,6 @@ Character createCharacter() {
 }
 
 
-
 Character displayCharacterInfo(Character character) {
     rout("\nCharacter Information:");
     cout << "\nPlayer Name: " << character.name << endl;
@@ -90,7 +88,6 @@ Character displayCharacterInfo(Character character) {
     cout << "Experience: " << character.experience << endl;
     return character;
 }
-
 
 
 int embquest() {
@@ -124,7 +121,6 @@ int embquest() {
 }
 
 
-
 void quest1(Character character) {
     Player player;
     player.health = 100;
@@ -133,7 +129,6 @@ void quest1(Character character) {
 
     string forestRiddleAnswer;
     bool riddleSolved = false;
-
 
     while (true) {
         // Quest 1, Level 1
@@ -186,7 +181,6 @@ void quest1(Character character) {
         }
         character.experience += 5;
     }
-
 
 
     cout << endl;
@@ -300,9 +294,7 @@ void quest1(Character character) {
     }
 }
 
-
 void restartQuest2(Character character);
-
 
 void quest2(Character character) {
     int playerHealth = 100;
@@ -618,7 +610,6 @@ void quest3() {
 
     rout("* Ahh! That was a close one; I wonder what could have happened *\n");
 }
-
 
 
 

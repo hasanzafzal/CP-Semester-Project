@@ -340,6 +340,7 @@ void quest2(Character character) {
 
     // Quest 2 , Level 2: Confrontation with Wolves
     cout << "Level 2: Let's Continue";
+    cout << endl;
     rout("PROMPT: DID YOU HEAR A WEIRD SOUND? WHAT'S THAT?");
     cout << endl;
     rout("*GRRR! HOWLL! *");

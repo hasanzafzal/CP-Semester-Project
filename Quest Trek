@@ -46,6 +46,7 @@ void rout(const string& text)
 }
 
 
+
 Character createCharacter() {
     Character character;
 
@@ -80,6 +81,7 @@ Character createCharacter() {
 }
 
 
+
 Character displayCharacterInfo(Character character) {
     rout("\nCharacter Information:");
     cout << "\nPlayer Name: " << character.name << endl;
@@ -88,6 +90,7 @@ Character displayCharacterInfo(Character character) {
     cout << "Experience: " << character.experience << endl;
     return character;
 }
+
 
 
 int embquest() {
@@ -121,6 +124,7 @@ int embquest() {
 }
 
 
+
 void quest1(Character character) {
     Player player;
     player.health = 100;
@@ -129,6 +133,7 @@ void quest1(Character character) {
 
     string forestRiddleAnswer;
     bool riddleSolved = false;
+
 
     while (true) {
         // Quest 1, Level 1
@@ -183,6 +188,7 @@ void quest1(Character character) {
     }
 
 
+
     cout << endl;
     // Quest 1, Level 2
     cout << "LEVEL 2: Goblin Mania" << endl;
@@ -200,7 +206,7 @@ void quest1(Character character) {
     cout << endl;
     rout("PROMPT: THE GOBLINS ARE CONFRONTING YOU FOR TRESPASSING, FEND THEM OFF ! ");
     cout << endl;
-    
+
     // Battle
     const int nGoblins = 3;
     int Goblin_Health[nGoblins] = { 50, 50, 50 };
@@ -287,14 +293,16 @@ void quest1(Character character) {
 
         // Goblin defeat check
         if (defeatedGoblins == nGoblins) {
-            rout ("All goblins defeated!");
+            rout("All goblins defeated!");
             cout << endl;
             break;
         }
     }
 }
 
+
 void restartQuest2(Character character);
+
 
 void quest2(Character character) {
     int playerHealth = 100;
@@ -318,7 +326,7 @@ void quest2(Character character) {
             break;
         }
         else {
-            cout << "Incorrect answer. Try again , or press X to quit" << endl;
+            cout << "Incorrect answer. Try again (ENTER) , or press X to quit" << endl;
             attempts--;
             checkForExit();
 
@@ -394,7 +402,7 @@ void quest2(Character character) {
             cout << "You got attacked by Wolf " << i + 1 << " for " << max(0, wolfAttack) << " damage!" << endl;
 
             if (playerHealth <= 0) {
-                rout("You were defeated by the wolves. Game Over! :( "); 
+                rout("You were defeated by the wolves. Game Over! :( ");
                 cout << endl;
                 return;
             }
@@ -402,7 +410,7 @@ void quest2(Character character) {
 
         // Wolves defeat check
         if (defeatedWolves == nWolves) {
-            rout ("All wolves defeated! :D ");
+            rout("All wolves defeated! :D ");
             cout << endl;
             break;
         }
@@ -423,7 +431,7 @@ void quest2(Character character) {
 
     // Quest 2, Level 3: Arranging Blueprints
     rout("Another trace and not one but two! What a lucky day: [ H, R ]\n");
-    rout ("We are almost there!");
+    rout("We are almost there!");
     cout << endl;
     rout("How about we arrange the existing blueprints in correct order: _AHR_A");
     cout << endl;
@@ -454,7 +462,7 @@ void quest2(Character character) {
     }
 
     // Final Trace
-    rout ("\n\nSearching for the final trace now...");
+    rout("\n\nSearching for the final trace now...");
     cout << endl;
     rout("It must be easy since we guessed the remaining blueprints like the Legend of Eldoria mentioned");
     cout << endl;
@@ -501,7 +509,7 @@ void quest3() {
     string cureAnswer;
     cin.ignore(); // Clear the newline character left in the buffer
     for (int attempts = 3; attempts > 0; --attempts) {
-        rout("Enter your answer (" + to_string(attempts) + " attempts remaining): ");
+        cout << "Enter your answer :" << attempts << " attempts remaining";
         getline(cin, cureAnswer);
 
         if (cureAnswer == "ELDORIA") {
@@ -511,12 +519,12 @@ void quest3() {
         else {
             rout("Incorrect answer. Try again.\n");
             playerHealth -= 40;
-            cout << "Your health is " + to_string(playerHealth) + "\n";
+            cout << "Your health is " << playerHealth << "\n";
         }
     }
 
     if (playerHealth <= 0) {
-        rout ("Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!\n");
+        rout("Incorrect 3x! THE SNAKE VENOM GOT YOU! GAME OVER!\n");
         return;
     }
 
@@ -570,7 +578,7 @@ void quest3() {
     rout("You encountered a Griffin! Get ready for battle.\n");
 
     while (true) {
-        rout("Griffin Health: " + to_string(max(0, griffinHealth)) + "\n");
+        rout("Griffin Health: " +to_string(max(0, griffinHealth)) + "\n");
         rout("Your Health: " + to_string(max(0, playerHealth)) + "\n");
         rout("Press '1' to attack: ");
 
@@ -584,7 +592,7 @@ void quest3() {
             cout << "You attacked the Griffin with " + to_string(playerAttack) + " damage!\n";
 
             if (griffinHealth <= 0) {
-                rout ("You defeated the Griffin! Victory!\n");
+                rout("You defeated the Griffin! Victory!\n");
                 break;
             }
 
@@ -595,13 +603,13 @@ void quest3() {
             cout << "The Griffin attacked you with " + to_string(max(0, griffinAttack)) + " damage!\n";
 
             if (playerHealth <= 0) {
-                rout ("You were defeated by the Griffin. :( Game Over!");
+                rout("You were defeated by the Griffin. :( Game Over!");
                 cout << endl;
                 return;
             }
         }
         else {
-            rout ("Invalid input. Try again.\n");
+            rout("Invalid input. Try again.\n");
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue; // Go back to the beginning of the loop
@@ -613,8 +621,9 @@ void quest3() {
 
 
 
+
 int main() {
-    rout ("Welcome to Quest Trek\n");
+    rout("Welcome to Quest Trek\n");
     Character player = createCharacter();
 
     cout << "Welcome, " << player.name << " the " << player.classType << "!" << endl;
